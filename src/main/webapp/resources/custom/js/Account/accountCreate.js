@@ -23,21 +23,13 @@
      * Validates the Form before submitting it
      * */
     validateAndSubmitForm : function(){
-    	var that=this;
     	$("#accountForm").validate({
     		rules: {
     			firstName: "required",
     			lastName: "required",
-    			password: {
+    			cnp: {
     				required: true,
-    				minlength: 5,
-    				maxlength:10
-    			},
-    			password_confirm: {
-    				required: true,
-    				minlength: 5,
-    				maxlength: 10,
-    				equalTo: "#password"
+    				remote: "/validator/checkcnp"
     			},
     			email: {
     				required: true,
@@ -48,17 +40,7 @@
     		messages: {
     			firstName: {required : $('body').data('firstname')},
     			lastName:  {required  : $('body').data('lastname')},
-    			password:  {
-    				required: $('body').data('password'),
-    				minlength: $.format($('body').data('minlength')),
-    				maxlength: $.format($('body').data('maxlength'))
-    			},
-    			password_confirm: {
-    				required: $('body').data('passwordconfirm'),
-    				minlength: $.format($('body').data('minlength')),
-    				maxlength: $.format($('body').data('maxlength')),
-    				equalTo: $('body').data('equalto')
-    			},
+    			cnp: {required : "Camp obligatoriu"},
     			email: {
     				required: $('body').data('email'),
     				email: $('body').data('email'),
@@ -69,7 +51,7 @@
     			error.appendTo(element.next());
     		},
     		submitHandler: function() {
-    			var jsonData = null, index = null;
+    			var jsonData = null;
     			    			
     			jsonData = {
     				firstName : $("input#firstName").val(),
@@ -98,7 +80,6 @@
      * Binds the onClick event on the Cancel button
      * */
     initCancelButton : function (){
-    	var that=this;
     	$("#cancelButton").click(function() {
     		document.location.href='/domain/accounts/list';
     	});	

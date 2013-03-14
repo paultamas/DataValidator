@@ -35,5 +35,17 @@ public class CommonValidationController {
 	logger.debug("checking email : " + email);
 	return (accountRepository.findByEmail(email) != null) ? "false" : "true";
     }
-
+    
+    /**
+     * Checking the existency of a CNP
+     * 
+     * @param cnp
+     * @return "true" or "false"
+     */
+    @RequestMapping(value = "/checkcnp", params = "cnp")
+    public @ResponseBody
+    String checkCNP(@RequestParam String cnp) {
+	logger.debug("checking cnp : " + cnp);
+	return (accountRepository.findByCNP(cnp) != null) ? "false" : "true";
+    }
 }

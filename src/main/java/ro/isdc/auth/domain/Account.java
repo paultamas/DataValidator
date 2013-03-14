@@ -35,17 +35,11 @@ public class Account {
 	@Size(min = 1, max = 100)
 	private String lastName;
 
-	@NotNull
-	@Size(min = 1, max = 100)
-	private String password;
-
+	
 	@NotNull
 	@Size(min = 1, max = 50)
 	private String email;
 
-	@NotNull
-	private Boolean isEnabled;
-	
 	public String getCNP() {
 		return CNP;
 	}
@@ -80,14 +74,6 @@ public class Account {
 		this.lastName = lastName;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -96,15 +82,7 @@ public class Account {
 		this.email = email;
 	}
 
-	public Boolean getIsEnabled() {
-		return isEnabled;
-	}
-
-	public void setIsEnabled(Boolean isEnabled) {
-		this.isEnabled = isEnabled;
-	}
-
-
+	
 
 	@Override
 	public boolean equals(Object obj) {

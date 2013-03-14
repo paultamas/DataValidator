@@ -50,7 +50,6 @@ public class ChangeOwnUserDetails {
 		logger.debug("Calling Update Own User Account page.");
 
 		Account userAccount = service.getById(userContext.getUserId());
-		userAccount.setPassword(PASSWORD_UI);
 		model.addAttribute(MODEL_BEAN_ID, userAccount);
 		return "updateAccountPage";
 	}

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import ro.isdc.auth.domain.Account;
 import ro.isdc.auth.repository.AccountRepository;
+import ro.isdc.auth.support.ValueGenerator;
 
 
 /**
@@ -33,9 +34,7 @@ public class InitDataService {
 		admin.setFirstName("John");
 		admin.setLastName("Doe");
 		admin.setEmail("admin@mail.com");
-		admin.setPassword(DigestUtils.md5Hex("admin"));
-
-		admin.setIsEnabled(true);
+		admin.setCNP("1871029125478");		
 		this.userRepository.save(admin);
 		this.userRepository.save(admin);
 		/* A user with no admin right */
@@ -43,8 +42,7 @@ public class InitDataService {
 		user.setFirstName("Jane");
 		user.setLastName("Doe");
 		user.setEmail("user@mail.com");
-		user.setPassword(DigestUtils.md5Hex("user"));
-		user.setIsEnabled(true);
+		user.setCNP("1870524123123");
 		this.userRepository.save(user);		
 		this.userRepository.save(user);
 
@@ -56,8 +54,7 @@ public class InitDataService {
 			aUser.setFirstName("FirstName_" + i);
 			aUser.setLastName("LastName_" + i);
 			aUser.setEmail("User_" + i + "@mail.com");
-			aUser.setPassword(DigestUtils.md5Hex("user"));
-			aUser.setIsEnabled(true);
+			aUser.setCNP(ValueGenerator.getMaxString(13));
 			listUsers.add(aUser);
 
 		}

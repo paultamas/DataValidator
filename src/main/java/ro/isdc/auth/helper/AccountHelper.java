@@ -1,6 +1,5 @@
 package ro.isdc.auth.helper;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Component;
 
 import ro.isdc.auth.domain.Account;
@@ -25,8 +24,7 @@ public class AccountHelper implements EntityHelper<Account> {
 		copy.setFirstName(entity.getFirstName());
 		copy.setLastName(entity.getLastName());
 		copy.setEmail(entity.getEmail());
-		copy.setPassword(PASSWORD_UI);
-		copy.setIsEnabled(entity.getIsEnabled());
+		copy.setCNP(entity.getCNP());
 		return copy;
 	}
 
@@ -36,8 +34,7 @@ public class AccountHelper implements EntityHelper<Account> {
 		copy.setFirstName(entity.getFirstName());
 		copy.setLastName(entity.getLastName());
 		copy.setEmail(entity.getEmail());
-		copy.setPassword(PASSWORD_UI);
-		copy.setIsEnabled(entity.getIsEnabled());
+		copy.setCNP(entity.getCNP());
 		return copy;
 	}
 
@@ -52,8 +49,7 @@ public class AccountHelper implements EntityHelper<Account> {
 		account.setFirstName(ValueGenerator.getMaxString(100));
 		account.setLastName(ValueGenerator.getMaxString(100));
 		account.setEmail(ValueGenerator.getUniqueEmail());
-		account.setPassword(PASSWORD_UI);
-		account.setIsEnabled(true);
+		account.setCNP(ValueGenerator.getMaxString(13));
 		return account;
 	}
 
@@ -61,10 +57,7 @@ public class AccountHelper implements EntityHelper<Account> {
 	public Account updateFrom(final Account fromEntity, Account toEntity) {
 		toEntity.setFirstName(fromEntity.getFirstName());
 		toEntity.setLastName(fromEntity.getLastName());
-		toEntity.setIsEnabled(fromEntity.getIsEnabled());
-		if (!fromEntity.getPassword().equals(PASSWORD_UI)) {
-			toEntity.setPassword(DigestUtils.md5Hex(fromEntity.getPassword()));
-		}
+		toEntity.setCNP(fromEntity.getCNP());
 		return toEntity;
 	}
 

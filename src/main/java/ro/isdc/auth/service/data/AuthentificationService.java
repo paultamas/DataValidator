@@ -60,8 +60,8 @@ public class AuthentificationService implements UserDetailsService {
 		}
 
 		Collection<GrantedAuthority> grantedAuthorities = null;
-		String password = user.getPassword();
-		boolean enabled = user.getIsEnabled();
+		String password = null;
+		boolean enabled = false;
 		boolean userNonExpired = true;
 		boolean credentialsNonExpired = true;
 		boolean userNonLocked = true;

@@ -18,6 +18,10 @@ public interface AccountRepository extends PagingAndSortingRepository<Account, S
 
 	Account findByEmail(String email);
 	@Query("{$or : [ { firstName : { $regex : ?0, $options : 'i'}} , { lastName : { $regex : ?0, $options : 'i'}}, { email : { $regex : ?0, $options : 'i'}}]}")
+	
+	Account findByCNP(String cnp);
+	@Query("{$or : [ { firstName : { $regex : ?0, $options : 'i'}} , { lastName : { $regex : ?0, $options : 'i'}}, { cnp : { $regex : ?0, $options : 'i'}}]}")
+	
 	Page<Account> findAllBySearchTerm(String searchTerm, Pageable request);
 
 }
