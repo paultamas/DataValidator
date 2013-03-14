@@ -12,64 +12,13 @@
      * Binds client-side behavior.
      */
     bindBehavior : function() {
-    	this.getAllRoles();
     	this.initCancelButton();
-    	this.validateAndSubmitForm();
-    	
+    	this.validateAndSubmitForm();    	
     	$('.container').css({'padding-top': function () {    			
 					return ($('div.navbar-fixed-top').height());
 				}
     	});  
     },
-    /**
-     * Retrieves all existing roles from the server and populates a multiple-select list
-     * */
-    getAllRoles : function(){
-    	var that=this;
-    	$.ajax({  
-  		  type: "GET",  
-  		  url: "/domain/roles/getAll",  
-  		  contentType: "application/json; charset=utf-8",
-  		  success: function(response) {  			  
-  			  that.allExistingRoles=response;
-  			  for(var i=0;i<that.allExistingRoles.length;i++){
-  				  $('#rolesList').append("<option value="+that.allExistingRoles[i].id+">"+that.allExistingRoles[i].roleName+"</option>");						  
-  			  }
-  			  
-  			  $('.multiselect').multiselect({
-  			      buttonClass: 'btn',
-  			      buttonWidth: 'auto',
-  			      buttonText: function(options) {
-  			        if (options.length === 0) {
-  			          return $('body').data('noneselected')+' <b class="caret"></b>';
-  			        }
-  			        else if (options.length > 4) {
-  			          return options.length + $('body').data('selected')+'  <b class="caret"></b>';
-  			        }
-  			        else {
-  			          var selected = '';
-  			          options.each(function() {
-  			            selected += $(this).text() + ', ';
-  			          });
-  			          return selected.substr(0, selected.length -2) + ' <b class="caret"></b>';
-  			        }
-  			      }
-  			  });
-  			 
-  			  $('ul li input[type="checkbox"]').on('change', function(e){
-  				  var checked = $(e.target).prop('checked') || false, role={};			   	
-  					if(checked){
-  						  	role.id=$(this).val();
-  						  	role.roleName = $.trim($(this).parents('label').text());
-  						  	that.selectedRoles[role.id]=role;
-  					}else{
-  						 delete that.selectedRoles[$(this).val()];						 
-  					}					
-  			  });		
-  		  }//success
-    	});  	
-    	
-    },    
     /**
      * Validates the Form before submitting it
      * */
@@ -121,20 +70,12 @@
     		},
     		submitHandler: function() {
     			var jsonData = null, index = null;
-    			
-    			for(index in that.selectedRoles){
-    				if (that.selectedRoles.hasOwnProperty(index)) {
-    					that.rolesToUpdate.push(that.selectedRoles[index]);
-    				}
-    			}
-    			
+    			    			
     			jsonData = {
     				firstName : $("input#firstName").val(),
     				lastName : $("input#lastName").val(),
-    				password : $("input#password").val(),
+    				cnp : $("input#cnp").val(),
     				email : $("input#email").val(),
-    				isEnabled : $('input#isEnabled').is(':checked'),
-    				roles : that.rolesToUpdate
     			};
     			$.ajax({  
     				  type: "POST",  

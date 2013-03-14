@@ -49,7 +49,6 @@ public class AccountService extends AbstractCrudService<Account> {
 
 	@Override
 	public Account create(Account accountToSave) {
-		accountToSave.setPassword(DigestUtils.md5Hex(accountToSave.getPassword()));
 		return repository.save(accountToSave);
 	}
 

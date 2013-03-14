@@ -13,3 +13,4 @@
 	<tbody>
 	</tbody>
 </table>
+<script type="text/javascript" src="/resources/custom/js/Account/accountList.js"></script>	  		

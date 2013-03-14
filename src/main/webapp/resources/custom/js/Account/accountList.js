@@ -12,11 +12,7 @@
      */
     bindBehavior : function() {
     	this.initDataTable();
-    	this.initCrudButtons();
-    /*	$('.dataTables_wrapper').css({'padding-top': function () {
-    			return ($('div.navbar-fixed-top').height());
-			}
-    	});*/    	
+    	this.initCrudButtons();    
     },
     /**
      * Creates the dataTable with the Accounts List
@@ -40,17 +36,17 @@
     		"bAutoWidth": false,
     		"sAjaxSource" : "/domain/accounts/",
     		"aoColumns" : [ {"mData" : "id" },
-    		                {"mData" : "firstName"},
+    		                {"mData" : "cnp"},
     		                {"mData" : "lastName"}, 
-    		                {"mData" : "email"},
-    		                {"mData" : "isEnabled"}
+    		                {"mData" : "firstName"},
+    		                {"mData" : "email"}
     		               ],
     		"aoColumnDefs": [
     		                 { "sName": "id",   "aTargets": [ 0 ] },
-    		                 { "sName": "firstName",  "aTargets": [ 1 ] },
+    		                 { "sName": "cnp",  "aTargets": [ 1 ] },
     		                 { "sName": "lastName", "aTargets": [ 2 ] },
-    		                 { "sName": "email",  "aTargets": [ 3 ] },
-    		                 { "sName": "isEnabled",    "aTargets": [ 4 ] },
+    		                 { "sName": "firstName",  "aTargets": [ 3 ] },
+    		                 { "sName": "email",    "aTargets": [ 4 ] },
     		                 { "sClass" : "hide",   "aTargets" : [ 0 ]}
     		               ],           
     	  "fnDrawCallback": function ( oSettings ) {
@@ -78,9 +74,9 @@
     	var that=this;
     	$("div.toolbar").html('<button id="bt_add" class="btn btn-primary"></button> <button id="bt_update" class="btn btn-success" disabled="disabled"></button> <button id="bt_delete" type="button" class="btn btn-danger" disabled="disabled"></button>');
     	
-    	$('#bt_add').html($('body').data('accountcreate'));
-    	$('#bt_update').html($('body').data('accountedit'));
-    	$('#bt_delete').html($('body').data('accountdelete'));
+    	$('#bt_add').html('Inregistrare');
+    	$('#bt_update').html('Editare');
+    	$('#bt_delete').html('Stergere');
     	
     	$("#bt_add").click(function(){
     		document.location.href = '/domain/accounts/create';
@@ -94,7 +90,6 @@
     	    	  $('#errorModal').modal();
     		} else {
     			  document.location.href='/domain/accounts/update/'+that.selected_id;
-    			  //$("#bt_update").attr("href", "/domain/accounts/update/" + that.selected_id);    			
     		}
     	});
     	

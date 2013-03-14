@@ -13,11 +13,15 @@
 <link rel="shortcut icon" href="resources/img/favicon.png" type="image/png" />
 
 <!-- Le styles -->
-<link rel="stylesheet" href="${wroCtx}/commons.css" media="all" />
-<c:if test="${not empty pageName}">
-	<link rel="stylesheet" type="text/css" href="${wroCtx}/${pageName}.css" media="all" />
-</c:if>
-	
+<link rel="stylesheet" href="/resources/common/css/reset.meyer-2.0.min.css" media="all" />
+<link rel="stylesheet" href="/resources/common/css/base.css" media="all" />
+<link rel="stylesheet" href="/resources/common/css/bootstrap.css" media="all" />
+<link rel="stylesheet" href="/resources/common/css/bootstrap-responsive.css" media="all" />
+<link rel="stylesheet" href="/resources/common/css/bootstrap-base.css" media="all" />
+<link rel="stylesheet" href="/resources/common/css/commons.css" media="all" />
+<link rel="stylesheet" href="/resources/common/js/jquery/message/css/jquery.message-1.0.css" media="all" />
+<link rel="stylesheet" href="/resources/common/js/jquery/message/css/jquery.message-1.0.customizations.css" media="all" />
+<link rel="stylesheet" href="/resources/common/css/dataTableStyle.css" media="all" />
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -31,7 +35,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
-<body id="${pageName}" 
+<body id="${pageName}" class="base"
 	data-search-url='<c:url value='/search'/>' 
 	data-required='<spring:message code="required"/>' 
 	data-email='<spring:message code="email"/>'
@@ -60,20 +64,18 @@
 	data-roledelete='<spring:message code="domain.role.delete.legend"/>'
 	data-choosetemplate='<spring:message code="navbar.menu.choosetemplate"/>'
 	data-noinfosourceselected='<spring:message code="searchPage.no.infosource.selected"/>'
-	data-movierequired='<spring:message code="searchPage.movie.required"/>'	
-	<c:choose>
-	<c:when test="${fn:contains(userContext.getRoles(), 'ROLE_ADMIN')}">
-	data-role='admin' 
-	</c:when>
-	<c:otherwise>
-	data-role='user'
-	</c:otherwise>
-	</c:choose>	
-	<c:if test="${not empty defaultTheme}">
-		 class="${defaultTheme}"
-	</c:if>
+	data-movierequired='<spring:message code="searchPage.movie.required"/>'		
 	>
 
+	<!-- Javascript-->	
+	<script type="text/javascript" src="/resources/common/js/inheritance/inheritance-1.0.min.js"></script>	  		
+	<script type="text/javascript" src="/resources/common/js/jquery/jquery-1.8.3.min.js"></script>	  		
+	<script type="text/javascript" src="/resources/common/js/bootstrap.js"></script>	  		
+	<script type="text/javascript" src="/resources/common/js/base.js"></script>	  		
+	<script type="text/javascript" src="/resources/common/js/jquery/message/js/jquery.message-1.0.min.js"></script>	  		
+	<script type="text/javascript" src="/resources/common/js/jquery.dataTables.js"></script>	  		
+	<script type="text/javascript" src="/resources/common/js/dataTablesPagination.js"></script>	  		
+	<script type="text/javascript" src="/resources/common/js/jquery.validate.js"></script>	  		
 	<tiles:insertAttribute name="navbar-content" />
 	<div class="container">
 		<tiles:insertAttribute name="main-content" />
@@ -82,13 +84,5 @@
 		<tiles:insertAttribute name="footer-content" />
 	</footer>
 	<tiles:insertAttribute name="modal-content" />
-	<!-- Javascript-->	
-	<script type="text/javascript" src="${wroCtx}/commons.js"></script>	  		
-	<c:if test="${not empty pageName}">
-		<script type="text/javascript" src="${wroCtx}/${pageName}.js"></script>
-	</c:if>		
-	<c:if test="${not empty noCss}">
-		<script type="text/javascript" src="${wroCtx}/${noCss}.js"></script>
-	</c:if>		
 </body>
 </html>

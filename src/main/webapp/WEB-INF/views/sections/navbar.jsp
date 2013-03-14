@@ -10,13 +10,8 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li id="homePageLink">
-							<a href="${pageContext.request.contextPath}/"><fmt:message key="navbar.menu.home"/></a>
-						</li>
-						<li id="domainPageLink" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="navbar.menu.domain"/><b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="${pageContext.request.contextPath}/domain/accounts/list"><fmt:message key="navbar.menu.domain.account"/></a></li>																
-							</ul>
-						</li>						
+							<a href="${pageContext.request.contextPath}/">Acasa</a>
+						</li>												
 					</ul>	
 				</div>			
 		</div>

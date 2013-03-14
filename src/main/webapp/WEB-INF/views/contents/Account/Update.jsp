@@ -38,3 +38,4 @@
 		</div>		
 	</form>
 </div>
+<script type="text/javascript" src="/resources/custom/js/Account/accountUpdate.js"></script>	  				

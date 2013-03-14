@@ -4,9 +4,9 @@
 	<form id="accountForm" class="form-horizontal" autocomplete="off" method="POST" action="">
 	<legend>Inregistrare</legend>
 		<div class="control-group">
-			<label class="control-label" for="password">CNP<em>*</em></label>
+			<label class="control-label" for="cnp">CNP<em>*</em></label>
 			<div class="controls">
-				<input type="password" id="password" name="password" maxlength="50" value=""  placeholder="CNP">
+				<input type="password" id="cnp" name="cnp" maxlength="50" value=""  placeholder="CNP">
 				<span class="help-inline"></span>
 			</div>
 		</div>
@@ -37,3 +37,4 @@
 		</div>		
 	</form>
 </div>
+<script type="text/javascript" src="/resources/custom/js/Account/accountCreate.js"></script>	  		
