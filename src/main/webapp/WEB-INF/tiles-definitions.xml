@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<!-- Default Template -->
+	<definition name="generic-template" template="/WEB-INF/views/layouts/default.jsp">		
+		<put-attribute name="pageName" value="default" />
+		<put-attribute name="taglibs" value="/WEB-INF/views/includes/taglibs.jsp" />
+		<put-attribute name="title-content" value="" />
+		<put-attribute name="navbar-content" value="/WEB-INF/views/sections/navbar.jsp" />
+		<put-attribute name="main-content" value="" />		
+		<put-attribute name="modal-content" value="/WEB-INF/views/sections/modal.jsp" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/sections/footer.jsp" />
+		<put-attribute name="wroCtx" value="/resources/wro" />	
+		<put-attribute name="defaultTheme" value="base"/>					
+	</definition>
+
+	<!-- Login page -->
+	<definition name="loginPage" extends="generic-template">
+		<put-attribute name="pageName" value="" />
+		<put-attribute name="title-content" value="Login" />
+		<put-attribute name="main-content" value="/WEB-INF/views/contents/loginContent.jsp" />
+		<put-attribute name="noCss" value=""/>						
+	</definition>
+
+	<!-- Exception caught Page -->
+	<definition name="exception-caught" extends="generic-template">
+		<put-attribute name="pageName" value="" />
+		<put-attribute name="title-content" value="Exception" />
+		<put-attribute name="main-content" value="/WEB-INF/views/errors/exception-caught.jsp" />
+		<put-attribute name="noCss" value=""/>									
+	</definition>
+	
+	<!-- ~~~~~~~~~~~~~ -->
+	<!-- ACCOUNT PAGES -->
+	<!-- ~~~~~~~~~~~~~ -->
+
+	<!-- Accounts list page -->
+	<definition name="accountsPage" extends="generic-template">
+		<put-attribute name="pageName" value="listAccounts" />
+		<put-attribute name="title-content" value="Accounts" />
+		<put-attribute name="main-content" value="/WEB-INF/views/contents/Account/List.jsp" />
+		<put-attribute name="noCss" value=""/>		
+	</definition>
+
+	<!-- New Account page -->
+	<definition name="createAccountPage" extends="generic-template">
+		<put-attribute name="pageName" value="" />
+		<put-attribute name="title-content" value="New Account" />
+		<put-attribute name="main-content" value="/WEB-INF/views/contents/Account/Create.jsp" />
+		<put-attribute name="noCss" value="createAccount"/>				
+	</definition>
+
+	<!-- Update Account page -->
+	<definition name="updateAccountPage" extends="generic-template">
+		<put-attribute name="pageName" value="" />	
+		<put-attribute name="title-content" value="Edit Account" />
+		<put-attribute name="main-content" value="/WEB-INF/views/contents/Account/Update.jsp" />
+		<put-attribute name="noCss" value="updateAccount"/>	
+	</definition>	
+</tiles-definitions>
