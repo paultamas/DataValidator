@@ -32,19 +32,22 @@
     				remote: "/validator/checkcnp"
     			},
     			email: {
-    				required: true,
+    				required: false,
     				email: true,
     				remote: "/validator/checkemail"
     			}
     		},
     		messages: {
-    			firstName: {required : $('body').data('firstname')},
-    			lastName:  {required  : $('body').data('lastname')},
-    			cnp: {required : "Camp obligatoriu"},
+    			firstName: {required : "Introduceti prenumele"},
+    			lastName:  {required  : "Introduceti numele de familie"},
+    			cnp: {
+    				required : "Camp obligatoriu",
+    				remote: "Acest CNP exista deja in baza de date"
+    			},
     			email: {
-    				required: $('body').data('email'),
-    				email: $('body').data('email'),
-    				remote: $.format($('body').data('remote'))
+    				required: "Camp obligatoriu",
+    				email: "Introduceti o adresa de email valida",
+    				remote: "Aceasta adresa de email exista deja"
     			}
     		},
     		errorPlacement: function(error, element) {
@@ -67,7 +70,9 @@
     				  success: function(response,status,xhr) {
     						//shows a confirmation message in a RED div if error===true, else shows it in a BLACK div
     						$().message(response.message,response.error);
-    					  document.location.href='/domain/accounts/list';
+    						if(response.error===false){    							
+    							document.location.href='/domain/accounts/list';
+    						}	
     				  }
     				});  
     			return false; 

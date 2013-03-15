@@ -100,7 +100,7 @@ public class AccountService extends AbstractCrudService<Account> {
 		Account accountToSave = repository.findOne(userContext.getUserId());
 		accountToSave.setFirstName(userAccountToUpdate.getFirstName());
 		accountToSave.setLastName(userAccountToUpdate.getLastName());
-		accountToSave.setCNP(userAccountToUpdate.getCNP());
+		accountToSave.setCnp(userAccountToUpdate.getCnp());
 		return repository.save(accountToSave);
 	}
 }

@@ -44,8 +44,8 @@ public class CommonValidationController {
      */
     @RequestMapping(value = "/checkcnp", params = "cnp")
     public @ResponseBody
-    String checkCNP(@RequestParam String cnp) {
+    String checkCnp(@RequestParam String cnp) {
 	logger.debug("checking cnp : " + cnp);
-	return (accountRepository.findByCNP(cnp) != null) ? "false" : "true";
+	return (accountRepository.findByCnp(cnp) != null) ? "false" : "true";
     }
 }

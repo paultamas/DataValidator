@@ -4,31 +4,38 @@
 	<!-- Form container -->
 	<form id="accountEditForm" class="form-horizontal" autocomplete="off" method="POST" action="">
 	<legend>Editare</legend>
-		<div class="control-group">
-			<label class="control-label" for="password">CNP<em>*</em></label>
+		<div class="control-group hidden">
+			<label class="control-label" for="id"><fmt:message key="domain.account.column.id"/><em>*</em></label>
 			<div class="controls">
-				<input type="password" id="password" name="password" maxlength="50" value=""  placeholder="CNP">
+				<input type="text" id="id" name="id" readOnly="true" value="${crudObj.id}" maxlength="100" data-reset="${crudObj.id}">
+				<span class="help-inline"></span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="cnp">CNP<em>*</em></label>
+			<div class="controls">
+				<input type="text" id="cnp" name="cnp" maxlength="50" value="${crudObj.cnp}"  placeholder="CNP">
 				<span class="help-inline"></span>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="lastName">Nume<em>*</em></label>
 			<div class="controls">
-				<input type="text" id="lastName" name="lastName" value="" maxlength="100" placeholder="Nume">
+				<input type="text" id="lastName" name="lastName" value="${crudObj.lastName}" maxlength="100" placeholder="Nume">
 				<span class="help-inline"></span>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="firstName">Prenume<em>*</em></label>
 			<div class="controls">
-				<input type="text" id="firstName" name="firstName" value="" maxlength="100" placeholder="Prenume">
+				<input type="text" id="firstName" name="firstName" value="${crudObj.firstName}" maxlength="100" placeholder="Prenume">
 				<span class="help-inline"></span>
 			</div>
 		</div>		
 		<div class="control-group">
 			<label class="control-label" for="email">Email</label>
 			<div class="controls">
-				<input type="text" id="email" name="email" placeholder="Email" value="" maxlength="100">
+				<input type="text" id="email" name="email" placeholder="Email" value="${crudObj.email}" maxlength="100">
 				<span class="help-inline"></span>
 			</div>
 		</div>		

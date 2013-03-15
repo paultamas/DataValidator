@@ -24,7 +24,7 @@ public class AccountHelper implements EntityHelper<Account> {
 		copy.setFirstName(entity.getFirstName());
 		copy.setLastName(entity.getLastName());
 		copy.setEmail(entity.getEmail());
-		copy.setCNP(entity.getCNP());
+		copy.setCnp(entity.getCnp());
 		return copy;
 	}
 
@@ -34,7 +34,7 @@ public class AccountHelper implements EntityHelper<Account> {
 		copy.setFirstName(entity.getFirstName());
 		copy.setLastName(entity.getLastName());
 		copy.setEmail(entity.getEmail());
-		copy.setCNP(entity.getCNP());
+		copy.setCnp(entity.getCnp());
 		return copy;
 	}
 
@@ -49,7 +49,7 @@ public class AccountHelper implements EntityHelper<Account> {
 		account.setFirstName(ValueGenerator.getMaxString(100));
 		account.setLastName(ValueGenerator.getMaxString(100));
 		account.setEmail(ValueGenerator.getUniqueEmail());
-		account.setCNP(ValueGenerator.getMaxString(13));
+		account.setCnp(ValueGenerator.getMaxString(13));
 		return account;
 	}
 
@@ -57,7 +57,7 @@ public class AccountHelper implements EntityHelper<Account> {
 	public Account updateFrom(final Account fromEntity, Account toEntity) {
 		toEntity.setFirstName(fromEntity.getFirstName());
 		toEntity.setLastName(fromEntity.getLastName());
-		toEntity.setCNP(fromEntity.getCNP());
+		toEntity.setCnp(fromEntity.getCnp());
 		return toEntity;
 	}
 

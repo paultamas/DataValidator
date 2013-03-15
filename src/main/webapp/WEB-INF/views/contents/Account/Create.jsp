@@ -6,7 +6,7 @@
 		<div class="control-group">
 			<label class="control-label" for="cnp">CNP<em>*</em></label>
 			<div class="controls">
-				<input type="password" id="cnp" name="cnp" maxlength="50" value=""  placeholder="CNP">
+				<input type="text" id="cnp" name="cnp" maxlength="50" value=""  placeholder="CNP">
 				<span class="help-inline"></span>
 			</div>
 		</div>

@@ -34,7 +34,7 @@ public class InitDataService {
 		admin.setFirstName("John");
 		admin.setLastName("Doe");
 		admin.setEmail("admin@mail.com");
-		admin.setCNP("1871029125478");		
+		admin.setCnp("1871029125478");		
 		this.userRepository.save(admin);
 		this.userRepository.save(admin);
 		/* A user with no admin right */
@@ -42,7 +42,7 @@ public class InitDataService {
 		user.setFirstName("Jane");
 		user.setLastName("Doe");
 		user.setEmail("user@mail.com");
-		user.setCNP("1870524123123");
+		user.setCnp("1870524123123");
 		this.userRepository.save(user);		
 		this.userRepository.save(user);
 
@@ -54,7 +54,7 @@ public class InitDataService {
 			aUser.setFirstName("FirstName_" + i);
 			aUser.setLastName("LastName_" + i);
 			aUser.setEmail("User_" + i + "@mail.com");
-			aUser.setCNP(ValueGenerator.getMaxString(13));
+			aUser.setCnp(ValueGenerator.getMaxString(13));
 			listUsers.add(aUser);
 
 		}

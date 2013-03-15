@@ -25,7 +25,8 @@ public class Account {
 	private String id;
 	
 	@NotNull
-	private String CNP;
+	@Size(min=13, max=13, message="C\u00E2mpul CNP trebuie s\u0103 aib\u0103 exact 13 cifre")
+	private String cnp;
 	
 	@NotNull
 	@Size(min = 1, max = 100)
@@ -35,20 +36,19 @@ public class Account {
 	@Size(min = 1, max = 100)
 	private String lastName;
 
-	
-	@NotNull
-	@Size(min = 1, max = 50)
 	private String email;
 
-	public String getCNP() {
-		return CNP;
-	}
 
-	public void setCNP(String cNP) {
-		this.CNP = cNP;
-	}
 
 	/** GETTERS/SETTERS **/
+	
+	public String getCnp() {
+		return cnp;
+	}
+
+	public void setCnp(String cnp) {
+		this.cnp = cnp;
+	}
 
 	public String getFirstName() {
 		return firstName;
